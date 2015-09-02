@@ -1,13 +1,13 @@
 class CatsController < ApplicationController
   def index
     @cats = []
-    Cats.each do |cat|
+    @cats.each do |cat|
       cats << cat
     end
   end
 
   def show
-    @cat = Cat.find(perams[:id])
+    @cat = Cat.find(params[:id])
   end
 
   def edit
@@ -26,7 +26,7 @@ class CatsController < ApplicationController
     end
   end
 
-  def new_cat
+  def new
     @cat = Cat.new
   end
 
@@ -35,7 +35,7 @@ class CatsController < ApplicationController
     @cat = Cat.find(params[:id])
     if @cat
       if @cat.destroy
-        flash[:success] = "cat destroyed"
+        flash[:destroyed] = "cat destroyed"
       end
     end
     @cat.id

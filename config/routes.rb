@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   resources :owners
   resources :cats
-  resources :cats
-  resources :owners
+
   get 'owners/index'
 
   get 'owners/show'
@@ -19,8 +18,7 @@ Rails.application.routes.draw do
 
   get 'cats/new'
 
-  resources :cats
-  resources :owners
+
 
   root 'owners#index'
 end
